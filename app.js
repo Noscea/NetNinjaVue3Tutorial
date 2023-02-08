@@ -5,6 +5,7 @@ const app = Vue.createApp({
   //Initialisation des variables du composant
   data() {
     return {
+      showBooks:true,
       title: "The Final Empire",
       author: "Brandon Sanderson",
       age: 45,
@@ -15,6 +16,10 @@ const app = Vue.createApp({
     increase() {
       this.age++;
     },
+
+    toggleShowBooks() {
+      this.showBooks = !this.showBooks
+    }
   },
 });
 

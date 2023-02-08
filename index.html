@@ -13,11 +13,26 @@
 
     <!--Div avec l'id app dans laquel Vue pourra controler les éléments-->
     <div id="app">
+      <!-- Ajout d'une conditionnel pour afficher la div avec le v-if -->
+      <div v-if="showBooks">
         <p>{{title}} - {{author}} - {{age}}</p>
         <!--Evenement on click avec fonction dans le template + instruction "v-on" -->
         <button v-on:click="increase">Increase age</button>
         <!--Evenement on click avec fonction dans le composant dans le fichier javascript + instruction en @-->
         <button @click="age--">Decrease age</button>
+      </div>
+
+      <!-- Ajout d'un bouton pour afficher et faire disparaitre la div -->
+      <button @click="toggleShowBooks">
+        <span v-if="showBooks">Hide Books</span>
+        <span v-else>Show Books</span>
+      </button>
+
+      <!-- Utilisation de v-show pour afficher (ou non) la div. Evite de faire un v-if/v-else -->
+      <div v-show="showBooks">Currently showing books</div>
+
+      <!-- v-if enlève la div entièrement du code si la condition n'est pas remplie. V-show applique un display:none au css.  -->
+      <!-- v-show pour les changements fréquents, v-if pour les changeemnts occasionnels -->
     </div>
 
     <script src="app.js"></script>
