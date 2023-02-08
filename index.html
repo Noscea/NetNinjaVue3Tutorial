@@ -14,6 +14,35 @@
         margin: 20px;
         display: inline-block;
       }
+
+      body {
+        background: #eeeeee;
+        max-width: 960px;
+        margin: 20px auto;
+      }
+
+      p,
+      h3,
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        list-style-type: none;
+        background: #ffffff;
+        margin: 20px auto;
+        padding: 10px 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      li.fav {
+        background-color: #ff9ed2;
+        color: #ffffff;
+      }
     </style>
     <title>Learning Vue</title>
   </head>
@@ -23,21 +52,18 @@
     <!--Div avec l'id app dans laquel Vue pourra controler les éléments-->
     <div id="app">
       <!-- Attribute Binding: Permet de lier la data de composant vue à notre balise dynamiquement. V-bind pour la version longue ou : pour la version courte-->
-      <a v-bind:href="url">Best Website Ever</a> <br>
+      <a v-bind:href="url">Best Website Ever</a> <br />
       <a :href="url2">Second Best Website Ever</a>
-
 
       <!-- Ajout d'une conditionnel pour afficher la div avec le v-if -->
       <div v-if="showBooks">
         <ul>
-
           <!-- v-for cycle sur une liste d'element pour en automatiser le traitement -->
-          <li v-for="book in books">
-            <img :src="book.image" :alt="book.title">
-            <h3>{{book.title}}</h3> 
+          <li v-for="book in books" :class="{fav: book.isFav}">
+            <img :src="book.image" :alt="book.title" />
+            <h3>{{book.title}}</h3>
             <p>{{book.author}}</p>
           </li>
-
         </ul>
         <p>age :{{age}}</p>
         <!--Evenement on click avec fonction dans le template + instruction "v-on" -->
@@ -62,7 +88,9 @@
       <!--Mouse Events-->
       <!-- Le $event permet de garder l'evenement en parametre de notre handler tout en ajoutant un parametre personalisé. Ne pas mettre le $event revient à ne pas pouvoir l'utiliser -->
       <!-- Sans parametre, l'evenement est l'argument par défaut -->
-      <div class="box" @mouseover="handleEvent($event, 5)">Mouseover (enter)</div>
+      <div class="box" @mouseover="handleEvent($event, 5)">
+        Mouseover (enter)
+      </div>
       <div class="box" @mouseleave="handleEvent">Mouseleave (exit)</div>
       <div class="box" @dblClick="handleEvent">Double click</div>
       <div class="box" @mousemove="handleMouseMove">Position - {{x}} {{y}}</div>
