@@ -1,4 +1,4 @@
-# Net Ninja Vue3 Tutorial=
+# Net Ninja Vue3 Tutorial
 
 ## Description
 
