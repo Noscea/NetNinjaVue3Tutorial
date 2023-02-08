@@ -22,9 +22,24 @@
 
     <!--Div avec l'id app dans laquel Vue pourra controler les éléments-->
     <div id="app">
+      <!-- Attribute Binding: Permet de lier la data de composant vue à notre balise dynamiquement. V-bind pour la version longue ou : pour la version courte-->
+      <a v-bind:href="url">Best Website Ever</a> <br>
+      <a :href="url2">Second Best Website Ever</a>
+
+
       <!-- Ajout d'une conditionnel pour afficher la div avec le v-if -->
       <div v-if="showBooks">
-        <p>{{title}} - {{author}} - {{age}}</p>
+        <ul>
+
+          <!-- v-for cycle sur une liste d'element pour en automatiser le traitement -->
+          <li v-for="book in books">
+            <img :src="book.image" :alt="book.title">
+            <h3>{{book.title}}</h3> 
+            <p>{{book.author}}</p>
+          </li>
+
+        </ul>
+        <p>age :{{age}}</p>
         <!--Evenement on click avec fonction dans le template + instruction "v-on" -->
         <button v-on:click="increase">Increase age</button>
         <!--Evenement on click avec fonction dans le composant dans le fichier javascript + instruction en @-->
