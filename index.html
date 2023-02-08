@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--Indique quel version de vue utiliser pour l'application -- Utiliser vue@next pour rester à la dernière version -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
+    <style>
+      .box {
+        padding: 100px 0;
+        width: 400px;
+        text-align: center;
+        background: #dddddd;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
     <title>Learning Vue</title>
   </head>
   <body>
@@ -33,6 +42,15 @@
 
       <!-- v-if enlève la div entièrement du code si la condition n'est pas remplie. V-show applique un display:none au css.  -->
       <!-- v-show pour les changements fréquents, v-if pour les changeemnts occasionnels -->
+
+      <br />
+      <!--Mouse Events-->
+      <!-- Le $event permet de garder l'evenement en parametre de notre handler tout en ajoutant un parametre personalisé. Ne pas mettre le $event revient à ne pas pouvoir l'utiliser -->
+      <!-- Sans parametre, l'evenement est l'argument par défaut -->
+      <div class="box" @mouseover="handleEvent($event, 5)">Mouseover (enter)</div>
+      <div class="box" @mouseleave="handleEvent">Mouseleave (exit)</div>
+      <div class="box" @dblClick="handleEvent">Double click</div>
+      <div class="box" @mousemove="handleMouseMove">Position - {{x}} {{y}}</div>
     </div>
 
     <script src="app.js"></script>

@@ -9,6 +9,8 @@ const app = Vue.createApp({
       title: "The Final Empire",
       author: "Brandon Sanderson",
       age: 45,
+      x:0,
+      y:0
     };
   },
   //Déclarations des methodes du composant
@@ -19,6 +21,18 @@ const app = Vue.createApp({
 
     toggleShowBooks() {
       this.showBooks = !this.showBooks
+    },
+
+    handleEvent(event, data) {
+      console.log(event, event.type);
+      if (data){
+        console.log(data);
+      }
+    },
+
+    handleMouseMove(event) {
+      this.x = event.offsetX
+      this.y = event.offsetY
     }
   },
 });
