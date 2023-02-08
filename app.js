@@ -27,7 +27,9 @@ const app = Vue.createApp({
     toggleShowBooks() {
       this.showBooks = !this.showBooks;
     },
-
+    toogleIsFav(book){
+     book.isFav =!book.isFav
+    },
     handleEvent(event, data) {
       console.log(event, event.type);
       if (data) {
