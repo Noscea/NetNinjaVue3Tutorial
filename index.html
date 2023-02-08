@@ -51,6 +51,8 @@
 
     <!--Div avec l'id app dans laquel Vue pourra controler les éléments-->
     <div id="app">
+
+
       <!-- Attribute Binding: Permet de lier la data de composant vue à notre balise dynamiquement. V-bind pour la version longue ou : pour la version courte-->
       <a v-bind:href="url">Best Website Ever</a> <br />
       <a :href="url2">Second Best Website Ever</a>
@@ -59,7 +61,7 @@
       <div v-if="showBooks">
         <ul>
           <!-- v-for cycle sur une liste d'element pour en automatiser le traitement -->
-          <li v-for="book in books" :class="{fav: book.isFav}" @click="toogleIsFav(book)">
+          <li v-for="book in filteredBooks" :class="{fav: book.isFav}" @click="toogleIsFav(book)">
             <img :src="book.image" :alt="book.title" />
             <h3>{{book.title}}</h3>
             <p>{{book.author}}</p>

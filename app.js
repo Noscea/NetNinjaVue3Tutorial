@@ -42,6 +42,12 @@ const app = Vue.createApp({
       this.y = event.offsetY;
     },
   },
+  //Declaration des variables calculées - Dépendantes des autres variables du composant
+  computed:{
+    filteredBooks(){
+      return this.books.filter((book) => book.isFav)
+    }
+  }
 });
 
 //Indique l'endroit où l'appli Vue prendra effet -- ici dans l'élémeent avec id app
