@@ -1,15 +1,16 @@
 <template>
   <h1>{{title}}</h1>
-  <!--Le tag ref permet de référencer notre balise dans le composant-->
-  <input type="text" ref="name">
-  <button @click="handleClick">Click me</button>
+  <Modal />
 </template>
 
 <script>
-
+import Modal from './components/Modal.vue'
 
 export default {
   name: 'App',
+  components:{
+    Modal,
+  },
   data() {
     return {
       title:'My First Vue App'
